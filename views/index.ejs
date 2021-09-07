@@ -1,1 +1,7 @@
-Ici le contenu du body en index.ejs de views
+<h2>Recently Added</h2>
+
+<div>
+  <% books.forEach(book =>{%>
+  <img height="150" width="100" src="<%=book.coverImagePath%>" />
+  <% }) %>
+</div>
