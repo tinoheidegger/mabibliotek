@@ -6,7 +6,6 @@ const router = express.Router();
 
 //All Authors Route
 router.get("/", async (req, res) => {
-  //Set options
   let searchOptions = {};
   if (req.query.name != null && req.query.name !== "") {
     searchOptions.name = new RegExp(req.query.name, "i");
@@ -24,7 +23,7 @@ router.get("/", async (req, res) => {
 
 //New Author Route
 router.get("/new", (req, res) => {
-  res.render("authors/new", { author: Author() });
+  res.render("authors/new", { author: new Author() });
 });
 
 // Create Author Route
@@ -43,7 +42,6 @@ router.post("/", async (req, res) => {
       errorMessage: "Error creating Author",
     });
   }
-  console.log(errorMessage);
 });
 
 module.exports = router;
