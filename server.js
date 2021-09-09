@@ -4,12 +4,14 @@ if (process.env.NODE_ENV !== "production") {
 const express = require("express");
 const bodyParser = require("body-parser");
 const expressLayouts = require("express-ejs-layouts");
+const methodOverride = require("method-override");
 const app = express();
 
 //Middleware
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: false }));
 app.use(express.json());
 app.use(expressLayouts);
+app.use(methodOverride("_method"));
 app.use(express.static("public"));
 
 const indexRouter = require("./routes/index");
